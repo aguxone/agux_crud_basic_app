@@ -1,6 +1,6 @@
 {% extends "base_menu.html" %}
 {% block content %}
-<h1>Agux's Ads App</h1>
+<h1>Agux's Basic CRUD App</h1>
 
 <!-- Django4w5 We add a search bar at the right!-->
 <div style="float:right">
@@ -21,13 +21,16 @@
   {% for ad in ad_list %}
     <li>
         <a href="{% url 'ads:ad_detail'  ad.id %}">{{ ad.title }}</a>
-        {% if ad.owner == user %}
+
+        <!-- Muy importante la condicion siguiente con un "or" user.is_superuser -->
+        <!--O sea si soy un supeuser favoriteo lo que quiero y edito y borro lo que quiero-->
+        <!--sin importar si soy el dueño del mensaje o no-->
+        {% if ad.owner == user or user.is_superuser %}
         (<a href="{% url 'ads:ad_update' ad.id %}">Edit</a> |
         <a href="{% url 'ads:ad_delete' ad.id %}">Delete</a>)
         <!-- Estos ad_update y ad_delete tienen son una sintaxis que tiene que ver con SQL, y mandan a
         a un view que tiene un sintaxis de Django que mandaran a ad_confirm_delete y ad_form respectivamente,
         que yo enteinda claro porqu es un QUILOMBO no tiene lógica alguna.-->
-
 
         <!-- Django4w4 Ahora la parte  de los BOTONES de favorites que entran en la misma lista-->
         <!-- La fucnión favPost está descripta al final del template-->
