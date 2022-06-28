@@ -2,7 +2,7 @@
 
 ## Description
 Simple forum-like web app made with Django (backend development) to post different entries on a single list-like html (made as a final project for a course). Entries can be created, removed, updated or deleted (CRUD). It features different funcionalities:
-- Registering and login of different user, including social login with github accounts.
+- Registering and login of different users, including social login with github accounts.
 - Bookmarking functionality, this enables users to save their prefered entries (marked with a star)
 - Search bar used for searching through the different entries.
 - Entries are differentiated by the user who posted them.
